@@ -1,0 +1,191 @@
+<div
+  class="flex justify-self-center w-[50%] px-8 py-5 rounded-2xl bg-lightgrey"
+>
+  <form (ngSubmit)="submitForm()" class="w-full">
+    <h1 class="text-3xl font-extrabold my-4">Ajouter un Chantier</h1>
+    <h2 class="text-2xl font-semibold my-12">Détails de Chantier</h2>
+
+    <!-- Form Fields -->
+    <!-- Nom de Chantier -->
+    <div class="mb-4">
+      <label for="nom-chantier" class="block font-medium mb-4"
+        >Nom de Chantier:</label
+      >
+      <input
+        id="nom-chantier"
+        type="text"
+        class="w-full p-2 rounded-md bg-clicked placeholder:text-noire outline-none"
+        [(ngModel)]="chantier.nomChantier"
+        name="nomChantier"
+      />
+    </div>
+
+    <!-- Nom Maitre Ouvrage -->
+    <div class="mb-4">
+      <label for="nom-maitre-ouvrage" class="block font-medium mb-4"
+        >Nom Maitre Ouvrage:</label
+      >
+      <div class="relative">
+        <select
+          id="nom-maitre-ouvrage"
+          class="w-full p-2 rounded-md bg-clicked text-noire outline-none cursor-pointer appearance-none"
+          [(ngModel)]="chantier.nomMaitreOuvrage"
+          name="nomMaitreOuvrage"
+        >
+          <option value="" disabled selected>Choisir...</option>
+          <option *ngFor="let maitre of maitres" [value]="maitre">
+            {{ maitre }}
+          </option>
+        </select>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="absolute top-1/2 right-4 transform -translate-y-1/2 h-5 w-5 text-noire pointer-events-none"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 9l-7 7-7-7"
+          />
+        </svg>
+      </div>
+    </div>
+
+    <!-- Delai Début and Delai Fin -->
+    <div class="grid grid-cols-2 gap-4 mb-4">
+      <div>
+        <label for="delai-debut" class="block font-medium mb-4"
+          >Delai Début:</label
+        >
+        <div class="relative">
+          <input
+            id="delai-debut"
+            type="date"
+            class="w-full p-2 rounded-md bg-clicked text-noire cursor-text outline-none"
+            [(ngModel)]="chantier.delaiDebut"
+            name="delaiDebut"
+          />
+        </div>
+      </div>
+      <div>
+        <label for="delai-fin" class="block font-medium mb-4">Delai Fin:</label>
+        <div class="relative">
+          <input
+            id="delai-fin"
+            type="date"
+            class="w-full p-2 rounded-md bg-clicked text-noire cursor-text outline-none"
+            [(ngModel)]="chantier.delaiFin"
+            name="delaiFin"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Début des Horaires and Fin des Horaires -->
+    <div class="grid grid-cols-2 gap-4 mb-4">
+      <div>
+        <label for="debut-horaires" class="block font-medium mb-4"
+          >Début des Horaires:</label
+        >
+        <div class="relative">
+          <input
+            id="debut-horaires"
+            type="time"
+            class="w-full p-2 rounded-md bg-clicked text-noire cursor-text outline-none"
+            [(ngModel)]="chantier.debutHoraires"
+            name="debutHoraires"
+          />
+        </div>
+      </div>
+      <div>
+        <label for="fin-horaires" class="block font-medium mb-4"
+          >Fin des Horaires:</label
+        >
+        <div class="relative">
+          <input
+            id="fin-horaires"
+            type="time"
+            class="w-full p-2 rounded-md bg-clicked text-noire cursor-text outline-none"
+            [(ngModel)]="chantier.finHoraires"
+            name="finHoraires"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Responsable -->
+    <div class="mb-4">
+      <label for="responsable" class="block font-medium mb-4"
+        >Responsable:</label
+      >
+      <div class="relative">
+        <select
+          id="responsable"
+          class="w-full p-2 rounded-md bg-clicked text-noire outline-none cursor-pointer appearance-none"
+          [(ngModel)]="chantier.responsable"
+          name="responsable"
+        >
+          <option value="" disabled selected>Choisir...</option>
+          <option
+            *ngFor="let responsable of responsables"
+            [value]="responsable"
+          >
+            {{ responsable }}
+          </option>
+        </select>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="absolute top-1/2 right-4 transform -translate-y-1/2 h-5 w-5 text-noire pointer-events-none"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 9l-7 7-7-7"
+          />
+        </svg>
+      </div>
+    </div>
+
+    <!-- Catégories -->
+    <div class="grid grid-cols-4 gap-4 mb-4">
+      <div class="col-span-3">
+        <label for="categories" class="block font-medium mb-4"
+          >Catégories:</label
+        >
+        <input
+          id="categories"
+          type="text"
+          class="w-full p-2 rounded-md bg-clicked text-noire outline-none"
+          [(ngModel)]="chantier.categories"
+          name="categories"
+        />
+      </div>
+      <div
+        class="w-1/2 h-16 items-center flex justify-center place-self-end border-dashed border-2 border-noire rounded-md cursor-pointer"
+      >
+        <span class="text-3xl text-noire">+</span>
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="flex justify-between pt-8">
+      <button
+        type="button"
+        class="px-4 py-2 bg-clicked text-noire rounded-lg"
+        (click)="cancelForm()"
+      >
+        Annuler
+      </button>
+      <button type="submit" class="px-4 py-2 bg-clicked text-noire rounded-lg">
+        Confirmer
+      </button>
+    </div>
+  </form>
+</div>

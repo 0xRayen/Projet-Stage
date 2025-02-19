@@ -1,0 +1,59 @@
+<div
+  class="flex justify-self-center w-[40%] px-8 rounded-2xl py-5 bg-lightgrey"
+>
+  <form (ngSubmit)="submitForm()" class="w-full">
+    <h1 class="text-3xl font-extrabold my-4">Modifier</h1>
+    <h2 class="text-2xl font-semibold my-12">Détails d'Opérateur</h2>
+    <!-- Form Fields -->
+    <!-- Name Field -->
+    <div class="mb-4">
+      <label for="operateur-nom" class="block font-medium mb-4"
+        >Nom et Prénom:</label
+      >
+      <input
+        id="operateur-nom"
+        type="text"
+        class="w-full p-2 rounded-md bg-clicked placeholder:text-noire outline-none"
+        [(ngModel)]="operateur.nom"
+        name="operateurNom"
+      />
+    </div>
+    <!-- Password Field -->
+    <div class="mb-4">
+      <label for="operateur-mdp" class="block font-medium mb-4"
+        >Mot de Passe:</label
+      >
+      <input
+        id="operateur-mdp"
+        type="password"
+        class="w-full p-2 rounded-md bg-clicked placeholder:text-noire outline-none"
+        [(ngModel)]="operateur.mdp"
+        name="operateurMdp"
+      />
+    </div>
+    <!-- CIN Field -->
+    <div class="mb-4">
+      <label for="operateur-cin" class="block font-medium mb-4">C.I.N:</label>
+      <input
+        id="operateur-cin"
+        type="text"
+        class="w-full p-2 rounded-md bg-clicked placeholder:text-noire outline-none"
+        [(ngModel)]="operateur.cin"
+        name="operateurCin"
+      />
+    </div>
+    <!-- Action Buttons -->
+    <div class="flex justify-between pt-8">
+      <button
+        type="button"
+        class="px-4 py-2 bg-clicked text-noire rounded-lg"
+        (click)="cancelForm()"
+      >
+        Annuler
+      </button>
+      <button type="submit" class="px-4 py-2 bg-clicked text-noire rounded-lg">
+        Confirmer
+      </button>
+    </div>
+  </form>
+</div>

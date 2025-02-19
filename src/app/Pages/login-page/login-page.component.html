@@ -1,0 +1,105 @@
+<div
+  class="flex items-center justify-center min-h-screen bg-gradient-to-b from-darkgrey to-lightgrey"
+>
+  <div class="bg-lightgrey px-8 pb-4 border-2 border-white shadow-lg w-96">
+    <!-- Profile Icon -->
+    <div class="flex justify-center">
+      <div
+        class="w-32 h-32 transform -translate-y-12 bg-darkgrey rounded-full flex items-center justify-center"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-20 w-20 text-noire"
+          viewBox="0 0 16 16"
+          fill=""
+        >
+          <path
+            d="M8 7C9.65685 7 11 5.65685 11 4C11 2.34315 9.65685 1 8 1C6.34315 1 5 2.34315 5 4C5 5.65685 6.34315 7 8 7Z"
+            fill="#000000"
+          />
+          <path
+            d="M14 12C14 10.3431 12.6569 9 11 9H5C3.34315 9 2 10.3431 2 12V15H14V12Z"
+            fill="#000000"
+          />
+        </svg>
+      </div>
+    </div>
+
+    <!-- Login Heading -->
+    <p
+      class="text-center transform -translate-y-8 text-2xl font-normal text-gray-600 mt-4"
+    >
+      Login to your account
+    </p>
+
+    <!-- Form -->
+    <form class="mt-6" (submit)="onLogin()">
+      <!-- Username -->
+      <div>
+        <div class="flex items-center bg-white overflow-hidden mt-1">
+          <span class="bg-grey px-3 py-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 text-noire"
+              viewBox="0 0 16 16"
+              fill="none"
+            >
+              <path
+                d="M8 7C9.65685 7 11 5.65685 11 4C11 2.34315 9.65685 1 8 1C6.34315 1 5 2.34315 5 4C5 5.65685 6.34315 7 8 7Z"
+                fill="#000000"
+              />
+              <path
+                d="M14 12C14 10.3431 12.6569 9 11 9H5C3.34315 9 2 10.3431 2 12V15H14V12Z"
+                fill="#000000"
+              />
+            </svg>
+          </span>
+          <input
+            class="w-full h-full appearance-none focus:outline-none px-3 py-1.5"
+            type="text"
+            placeholder="Username"
+            [(ngModel)]="username"
+            name="username"
+            required
+          />
+        </div>
+      </div>
+
+      <!-- Password -->
+      <div class="mt-4">
+        <div class="flex items-center bg-white overflow-hidden mt-1">
+          <span class="bg-grey px-3 py-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="#000000"
+              class="w-5 h-5 text-gray-600"
+              viewBox="-7.5 0 32 32"
+              version="1.1"
+            >
+              <title>lock</title>
+              <path
+                d="M14.625 15.156h2.094c0.281 0 0.5 0.25 0.5 0.531v11c0 0.281-0.219 0.5-0.5 0.5h-16.219c-0.281 0-0.5-0.219-0.5-0.5v-11c0-0.281 0.219-0.531 0.5-0.531h2.031v-5.125c0-2.875 1.844-5.25 4.688-5.25h2.688c2.875 0 4.719 2.375 4.719 5.25v5.125zM5.188 15.156h6.813v-4.875c0-1.594-1.313-2.938-2.938-2.938h-0.969c-1.594 0-2.906 1.344-2.906 2.938v4.875zM7.156 24h2.906l-0.719-3.156c0.5-0.25 0.844-0.781 0.844-1.375 0-0.906-0.719-1.594-1.594-1.594s-1.563 0.688-1.563 1.594c0 0.594 0.344 1.125 0.844 1.375z"
+              />
+            </svg>
+          </span>
+          <input
+            class="w-full h-full appearance-none focus:outline-none px-3 py-1.5"
+            type="password"
+            placeholder="Password"
+            [(ngModel)]="password"
+            name="password"
+            required
+          />
+        </div>
+      </div>
+
+      <!-- Login Button -->
+      <button
+        type="submit"
+        class="mt-10 w-full h-14 bg-[#4D4D4D] text-white py-2 hover:bg-grey"
+      >
+        LOGIN
+      </button>
+    </form>
+  </div>
+</div>

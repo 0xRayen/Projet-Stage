@@ -1,0 +1,50 @@
+<div
+  *ngFor="let ticket of journaux"
+  class="flex flex-row p-2 my-5 bg-grey rounded-lg w-full justify-between items-center"
+>
+  <input type="checkbox" class="w-8 h-8 ml-2" />
+  <div
+    class="flex flex-row justify-between items-center w-full pl-3 text-sm text-wrap"
+  >
+    <!-- Title -->
+    <h1 class="">{{ ticket._id }}</h1>
+
+    <!-- author -->
+    <h2 class="pr-4">{{ ticket.responsable }}</h2>
+
+    <!-- Date and Time -->
+    <p class="mr-4 pr-4">{{ ticket.dateCreation }}</p>
+
+    <!-- chantier Text -->
+    <p class="">{{ ticket.nomChantier }}</p>
+  </div>
+  <!-- Icon -->
+  <button class="ml-9">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      fill="#000000"
+      class="h-8 w-8 text-noire"
+      version="1.1"
+      id="Layer_1"
+      viewBox="0 0 472.576 472.576"
+      xml:space="preserve"
+    >
+      <g>
+        <g>
+          <circle cx="65.142" cy="236.288" r="65.142" />
+        </g>
+      </g>
+      <g>
+        <g>
+          <circle cx="236.308" cy="236.288" r="65.142" />
+        </g>
+      </g>
+      <g>
+        <g>
+          <circle cx="407.434" cy="236.288" r="65.142" />
+        </g>
+      </g>
+    </svg>
+  </button>
+</div>

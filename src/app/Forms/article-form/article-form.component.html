@@ -1,0 +1,99 @@
+<div
+  class="flex justify-self-center w-[40%] px-8 rounded-2xl py-5 bg-lightgrey"
+>
+  <form (ngSubmit)="submitForm()" class="w-full">
+    <h1 class="text-3xl font-extrabold my-4">Ajouter un Article</h1>
+    <h2 class="text-2xl font-semibold my-12">Détails d'Article</h2>
+
+    <!-- Libellé Article -->
+    <div class="mb-4">
+      <label for="libelle-article" class="block font-medium mb-4"
+        >Libellé Article:</label
+      >
+      <input
+        id="libelle-article"
+        type="text"
+        class="w-full p-2 rounded-md bg-clicked placeholder:text-noire outline-none"
+        [(ngModel)]="article.libelle"
+        name="libelle"
+      />
+    </div>
+
+    <!-- Sous Détail de Prix -->
+    <div class="mb-4">
+      <label for="sous-detail-prix" class="block font-medium mb-4"
+        >Sous Détail de Prix:</label
+      >
+      <input
+        id="sous-detail-prix"
+        type="text"
+        class="w-full p-2 rounded-md bg-clicked placeholder:text-noire outline-none"
+        [(ngModel)]="article.sousDetail"
+        name="sousDetail"
+      />
+    </div>
+
+    <!-- Unité -->
+    <div class="mb-4">
+      <label for="unite" class="block font-medium mb-4">Unité:</label>
+      <select
+        id="unite"
+        class="w-full p-2 rounded-md bg-clicked outline-none appearance-none text-noire"
+        [(ngModel)]="article.unite"
+        name="unite"
+        style="
+          background-image: url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 fill=%27%23000000%27 viewBox=%270 0 24 24%27%3E%3Cpath d=%27M12 16l-6-6h12z%27/%3E%3C/svg%3E');
+          background-repeat: no-repeat;
+          background-position: right 10px center;
+          background-size: 16px;
+        "
+      >
+        <option *ngFor="let cat of categories" [value]="cat">
+          {{ cat }}
+        </option>
+      </select>
+    </div>
+
+    <!-- Quantité Unitaire -->
+    <div class="mb-4">
+      <label for="quantite-unitaire" class="block font-medium mb-4"
+        >Quantité Unitaire:</label
+      >
+      <input
+        id="quantite-unitaire"
+        type="text"
+        class="w-full p-2 rounded-md bg-clicked placeholder:text-noire outline-none"
+        [(ngModel)]="article.quantiteUnitaire"
+        name="quantiteUnitaire"
+      />
+    </div>
+
+    <!-- Prix Unitaire -->
+    <div class="mb-4">
+      <label for="prix-unitaire" class="block font-medium mb-4"
+        >Prix Unitaire:</label
+      >
+      <input
+        id="prix-unitaire"
+        type="text"
+        class="w-full p-2 rounded-md bg-clicked placeholder:text-noire outline-none"
+        [(ngModel)]="article.prixUnitaire"
+        name="prixUnitaire"
+      />
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="flex justify-between pt-8">
+      <button
+        type="button"
+        class="px-4 py-2 bg-clicked text-noire rounded-lg"
+        (click)="cancelForm()"
+      >
+        Annuler
+      </button>
+      <button type="submit" class="px-4 py-2 bg-clicked text-noire rounded-lg">
+        Confirmer
+      </button>
+    </div>
+  </form>
+</div>

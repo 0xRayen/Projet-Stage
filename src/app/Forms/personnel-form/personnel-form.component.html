@@ -1,0 +1,97 @@
+<div class="flex justify-self-center w-[40%] px-8 rounded-2xl py-5 bg-lightgrey">
+  <form (ngSubmit)="submitForm()" class="w-full">
+    <h1 class="text-3xl font-extrabold my-4">Ajouter un Personnel</h1>
+    <h2 class="text-2xl font-semibold my-12">Détails de Personnel</h2>
+
+    <!-- Nom et Prénom -->
+    <div class="mb-4">
+      <label for="nom-prenom" class="block font-medium mb-4">Nom et Prénom:</label>
+      <input
+        id="nom-prenom"
+        type="text"
+        class="w-full p-2 rounded-md bg-clicked placeholder:text-noire outline-none"
+        [(ngModel)]="personnel.name"
+        name="name"
+      />
+    </div>
+
+    <!-- Catégorie -->
+    <div class="mb-4 flex">
+      <!-- Select Menu -->
+      <div class="w-3/4">
+        <label for="categorie" class="block font-medium mb-4">Catégorie</label>
+        <select
+          id="categorie"
+          class="w-full p-2 rounded-md bg-clicked outline-none appearance-none text-noire"
+          [(ngModel)]="personnel.category"
+          name="category"
+          style="
+            background-image: url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 fill=%27%23000000%27 viewBox=%270 0 24 24%27%3E%3Cpath d=%27M12 16l-6-6h12z%27/%3E%3C/svg%3E');
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 16px;
+          "
+        >
+          <option *ngFor="let cat of categories" [value]="cat">
+            {{ cat }}
+          </option>
+        </select>
+      </div>
+
+      <!-- Box with Interrupted Border -->
+      <div
+        class="w-1/6 flex justify-center place-self-end border-dashed border-2 border-noire rounded-md ml-10 cursor-pointer"
+        (click)="cat_form()"
+      >
+        <span class="text-3xl text-noire">+</span>
+      </div>
+    </div>
+
+    <!-- C.I.N -->
+    <div class="mb-4">
+      <label for="cin" class="block font-medium mb-4">C.I.N</label>
+      <input
+        id="cin"
+        type="text"
+        class="w-full p-2 rounded-md bg-clicked placeholder:text-noire outline-none"
+        [(ngModel)]="personnel.cin"
+        name="cin"
+      />
+    </div>
+
+    <!-- Chantiers Assignés -->
+    <div class="mb-4">
+      <label for="chantiers-assignes" class="block font-medium mb-4"
+        >Chantiers Assignés</label
+      >
+      <select
+        id="chantiers-assignes"
+        class="w-full p-2 rounded-md bg-clicked appearance-none outline-none"
+        [(ngModel)]="personnel.assignedSites"
+        name="assignedSites"
+        style="
+          background-image: url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 fill=%27%23000000%27 viewBox=%270 0 24 24%27%3E%3Cpath d=%27M12 16l-6-6h12z%27/%3E%3C/svg%3E');
+          background-repeat: no-repeat;
+          background-position: right 10px center;
+          background-size: 16px;
+        "
+      >
+        <option *ngFor="let site of sites" [value]="site">{{ site }}</option>
+      </select>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="flex justify-between pt-8">
+      <button
+        type="button"
+        class="px-4 py-2 bg-clicked text-noire rounded-lg"
+        (click)="cancelForm()"
+      >
+        Annuler
+      </button>
+      <button type="submit" class="px-4 py-2 bg-clicked text-noire rounded-lg">
+        Confirmer
+      </button>
+    </div>
+  </form>
+</div>
